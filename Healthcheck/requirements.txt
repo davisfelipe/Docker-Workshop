@@ -1,0 +1,16 @@
+certifi==2020.12.5
+chardet==4.0.0
+click==7.1.2
+fastapi==0.63.0
+h11==0.11.0
+httpie==2.3.0
+idna==2.10
+pydantic==1.7.3
+Pygments==2.7.3
+PySocks==1.7.1
+requests==2.25.1
+requests-toolbelt==0.9.1
+starlette==0.13.6
+typing-extensions==3.7.4.3
+urllib3==1.26.2
+uvicorn==0.13.2

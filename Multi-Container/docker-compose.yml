@@ -1,0 +1,40 @@
+version: "3.5"
+services:
+  api:
+    build: .
+    container_name: api
+    env_file:
+      - .env
+    image: python/api:multi-container-api
+    networks:
+      - multi-container
+    ports:
+      - 80:8080
+    
+  celery:
+    build: .
+    container_name: celery
+    env_file:
+      - .env
+    environment:
+      - CELERY=true
+    image: python/api:multi-container-celery
+    networks:
+      - multi-container
+    ports:
+      - 15672:15672
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=pass
+    networks:
+      - multi-container
+
+networks:
+  multi-container:
+    name: multi-container
+    driver: bridge
+    
